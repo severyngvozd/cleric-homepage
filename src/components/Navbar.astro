@@ -1,0 +1,277 @@
+---
+import logo from '../assets/icons/logo.svg';
+import menuIcon from '../assets/icons/Button_menu.svg';
+---
+
+<nav class="navbar">
+	<div class="navbar-container">
+		<div class="navbar-brand">
+			<a href="/" aria-label="Cleric.ai home">
+				<img src={logo.src} alt="Cleric.ai" class="logo" />
+			</a>
+		</div>
+		<div class="navbar-menu">
+			<a href="#product" class="nav-link">Product</a>
+			<button class="nav-link nav-link-dropdown" type="button">
+				Solutions
+				<span class="nav-chevron"></span>
+			</button>
+			<button class="nav-link nav-link-dropdown" type="button">
+				Resources
+				<span class="nav-chevron"></span>
+			</button>
+			<a href="#about" class="nav-link">About</a>
+			<a href="#careers" class="nav-link">Careers</a>
+			<button class="btn-secondary" id="try-it-out-btn">Request Demo</button>
+		</div>
+		<button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+			<img src={menuIcon.src} alt="Menu" class="menu-icon" />
+		</button>
+	</div>
+</nav>
+
+<style>
+	.navbar {
+		position: sticky;
+		top: 0;
+		z-index: 1000;
+		background: transparent;
+		backdrop-filter: none;
+		border-bottom: none;
+		transition: all 0.3s ease;
+	}
+
+	.navbar.scrolled {
+		background: #ffffff;
+		border-bottom: 1px solid #eaeaea;
+	}
+
+	.navbar-container {
+		max-width: 1600px;
+		margin: 0 auto;
+		padding: 12px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.navbar-brand .logo {
+		display: block;
+		height: 24px;
+		width: auto;
+		transition: filter 0.3s ease;
+	}
+
+	.navbar.scrolled .navbar-brand .logo {
+		filter: brightness(0);
+	}
+
+	.navbar-menu {
+		display: flex;
+		align-items: center;
+		gap: 32px;
+	}
+
+	.nav-link,
+	.nav-link.nav-link-dropdown {
+		background: transparent;
+		border: none;
+		color: #ffffff;
+		text-decoration: none;
+		font-family: 'Cleric Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+		font-weight: 500;
+		font-size: 15px;
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		transition: color 0.2s ease;
+		cursor: pointer;
+	}
+
+	.navbar.scrolled .nav-link,
+	.navbar.scrolled .nav-link.nav-link-dropdown {
+		color: #313131;
+	}
+
+	.nav-link:hover {
+		color: #C29CF1;
+	}
+
+	.navbar.scrolled .nav-link:hover {
+		color: #C29CF1;
+	}
+
+	.nav-link-dropdown .nav-chevron {
+		display: inline-block;
+		width: 8px;
+		height: 8px;
+		border-left: 1.5px solid #ffffff;
+		border-bottom: 1.5px solid #ffffff;
+		transform: rotate(-45deg) translateY(-1px);
+		transition: border-color 0.2s ease;
+	}
+
+	.navbar.scrolled .nav-link-dropdown .nav-chevron {
+		border-left-color: #313131;
+		border-bottom-color: #313131;
+	}
+
+	.nav-link:hover .nav-chevron {
+		border-left-color: #C29CF1;
+		border-bottom-color: #C29CF1;
+	}
+
+	.navbar.scrolled .nav-link:hover .nav-chevron {
+		border-left-color: #C29CF1;
+		border-bottom-color: #C29CF1;
+	}
+
+	.btn-secondary {
+		background: rgba(255, 255, 255, 0.2);
+		color: #ffffff;
+		border: none;
+		padding: 6px 16px;
+		border-radius: 999px;
+		font-weight: 600;
+		font-family: 'Cleric Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		font-size: 15px;
+	}
+
+	.navbar.scrolled .btn-secondary {
+		background: #313131;
+		color: #ffffff;
+	}
+
+	.btn-secondary:hover {
+		background: rgba(255, 255, 255, 0.48);
+	}
+
+	.navbar.scrolled .btn-secondary:hover {
+		background: rgba(49, 49, 49, 0.8);
+	}
+
+	.mobile-menu-toggle {
+		display: none;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.5rem;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.menu-icon {
+		width: 24px;
+		height: 24px;
+		display: block;
+		transition: filter 0.3s ease;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-container {
+			padding: 12px;
+			justify-content: space-between;
+		}
+
+		.navbar-menu {
+			display: flex;
+			position: fixed;
+			top: 56px;
+			left: 0;
+			right: 0;
+			background: white;
+			flex-direction: column;
+			padding: 2rem;
+			gap: 1.5rem;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+			z-index: 999;
+			max-height: 0;
+			overflow: hidden;
+			opacity: 0;
+			transform: translateY(-20px);
+			transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease, padding 0.3s ease;
+			pointer-events: none;
+		}
+
+		.navbar-menu.open {
+			max-height: 600px;
+			opacity: 1;
+			transform: translateY(0);
+			pointer-events: all;
+		}
+
+		.navbar-menu .nav-link,
+		.navbar-menu .nav-link.nav-link-dropdown,
+		.navbar-menu .btn-secondary {
+			color: #313131;
+			justify-content: flex-start;
+		}
+
+		.navbar-menu .nav-link-dropdown .nav-chevron {
+			border-left-color: #313131;
+			border-bottom-color: #313131;
+		}
+
+		.navbar-menu .btn-secondary {
+			background: #313131;
+			color: #ffffff;
+			width: 100%;
+			justify-content: center;
+		}
+
+		.mobile-menu-toggle {
+			display: flex;
+		}
+
+		.navbar.scrolled .menu-icon {
+			filter: brightness(0);
+		}
+	}
+</style>
+
+<script>
+	const navbar = document.querySelector('.navbar');
+	const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+	const navbarMenu = document.querySelector('.navbar-menu');
+	const tryItOutBtn = document.getElementById('try-it-out-btn');
+
+
+	if (navbar) {
+		const handleScroll = () => {
+			if (window.scrollY > 50) {
+				navbar.classList.add('scrolled');
+			} else {
+				navbar.classList.remove('scrolled');
+			}
+		};
+
+		window.addEventListener('scroll', handleScroll);
+		handleScroll();
+	}
+
+	if (mobileMenuToggle && navbarMenu) {
+		mobileMenuToggle.addEventListener('click', (e) => {
+			e.stopPropagation();
+			navbarMenu.classList.toggle('open');
+		});
+
+		document.addEventListener('click', (e) => {
+			if (navbarMenu.classList.contains('open')) {
+				const target = e.target as HTMLElement;
+				if (!navbarMenu.contains(target) && !mobileMenuToggle.contains(target)) {
+					navbarMenu.classList.remove('open');
+				}
+			}
+		});
+	}
+
+	if (tryItOutBtn) {
+		tryItOutBtn.addEventListener('click', () => {
+			const event = new CustomEvent('open-wizard');
+			window.dispatchEvent(event);
+		});
+	}
+</script>
+

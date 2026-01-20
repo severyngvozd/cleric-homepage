@@ -1,0 +1,440 @@
+---
+const WEBHOOK_URL = 'https://webhook.site/YOUR-UNIQUE-ID';
+import closeIcon from '../assets/icons/close.svg';
+---
+
+<div id="wizard-overlay" class="wizard-overlay" style="display: none;">
+	<div class="wizard-modal">
+		<button class="wizard-close" id="wizard-close" aria-label="Close wizard">
+			<img src={closeIcon.src} alt="Close" />
+		</button>
+		<div class="wizard-content">
+			<div class="wizard-step" id="step-1" style="display: block;">
+				<h2>Let's get started</h2>
+				<p class="step-description">Tell us a bit about yourself</p>
+				<form id="wizard-form-step1" class="wizard-form">
+					<div class="form-group">
+						<label for="name">Full Name *</label>
+						<input type="text" id="name" name="name" required placeholder="John Doe" />
+					</div>
+					<div class="form-group">
+						<label for="email">Email Address *</label>
+						<input type="email" id="email" name="email" required placeholder="john@example.com" />
+					</div>
+					<div class="form-group">
+						<label for="company">Company Name</label>
+						<input type="text" id="company" name="company" placeholder="Acme Inc." />
+					</div>
+					<div class="form-group">
+						<label for="role">Your Role</label>
+						<select id="role" name="role">
+							<option value="">Select a role</option>
+							<option value="ceo">CEO</option>
+							<option value="cto">CTO</option>
+							<option value="developer">Developer</option>
+							<option value="manager">Manager</option>
+							<option value="other">Other</option>
+						</select>
+					</div>
+					<div class="form-actions">
+						<button type="button" class="btn-cancel" id="cancel-step1">Cancel</button>
+						<button type="submit" class="btn-next">Next</button>
+					</div>
+				</form>
+			</div>
+			<div class="wizard-step" id="step-2" style="display: none;">
+				<h2>Almost there</h2>
+				<p class="step-description">Help us understand your needs</p>
+				<form id="wizard-form-step2" class="wizard-form">
+					<div class="form-group">
+						<label for="use-case">What do you want to use this for? *</label>
+						<textarea id="use-case" name="useCase" required rows="4" placeholder="Describe your use case..."></textarea>
+					</div>
+					<div class="form-group">
+						<label for="team-size">Team Size</label>
+						<select id="team-size" name="teamSize">
+							<option value="">Select team size</option>
+							<option value="1">Just me</option>
+							<option value="2-10">2-10 people</option>
+							<option value="11-50">11-50 people</option>
+							<option value="51-200">51-200 people</option>
+							<option value="200+">200+ people</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="timeline">When are you looking to get started?</label>
+						<select id="timeline" name="timeline">
+							<option value="">Select timeline</option>
+							<option value="immediately">Immediately</option>
+							<option value="1-month">Within 1 month</option>
+							<option value="3-months">Within 3 months</option>
+							<option value="6-months">Within 6 months</option>
+							<option value="exploring">Just exploring</option>
+						</select>
+					</div>
+					<div class="form-actions">
+						<button type="button" class="btn-back" id="back-step2">Back</button>
+						<button type="button" class="btn-cancel" id="cancel-step2">Cancel</button>
+						<button type="submit" class="btn-submit">Submit</button>
+					</div>
+				</form>
+			</div>
+			<div class="wizard-step" id="step-success" style="display: none;">
+				<div class="success-content">
+					<div class="success-icon">✓</div>
+					<h2>Thank you!</h2>
+					<p>We've received your information and will be in touch soon.</p>
+					<button type="button" class="btn-primary" id="close-success">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	.wizard-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.5);
+		backdrop-filter: blur(4px);
+		z-index: 2000;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem;
+		animation: fadeIn 0.3s ease;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	.wizard-modal {
+		background: white;
+		border-radius: 16px;
+		max-width: 600px;
+		width: 100%;
+		max-height: 90vh;
+		overflow-y: auto;
+		position: relative;
+		animation: slideUp 0.3s ease;
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+	}
+
+	@keyframes slideUp {
+		from {
+			transform: translateY(20px);
+			opacity: 0;
+		}
+		to {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+
+	.wizard-close {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		background: none;
+		border: none;
+		cursor: pointer;
+		width: 40px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		transition: all 0.2s ease;
+		z-index: 10;
+	}
+
+	.wizard-close img {
+		width: 9px;
+		height: 9px;
+	}
+
+	.wizard-close:hover {
+		background: #f3f4f6;
+	}
+
+	.wizard-close:hover img {
+		filter: brightness(0);
+	}
+
+	.wizard-content {
+		padding: 3rem 2rem 2rem;
+	}
+
+	.wizard-step h2 {
+		font-size: 2rem;
+		font-weight: 700;
+		color: #111827;
+		margin: 0 0 0.5rem;
+	}
+
+	.step-description {
+		color: #6b7280;
+		margin: 0 0 2rem;
+		font-size: 1.1rem;
+	}
+
+	.wizard-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.form-group label {
+		font-weight: 600;
+		color: #374151;
+		font-size: 0.95rem;
+	}
+
+	.form-group input,
+	.form-group select,
+	.form-group textarea {
+		padding: 0.75rem;
+		border: 2px solid #e5e7eb;
+		border-radius: 8px;
+		font-size: 1rem;
+		font-family: inherit;
+		transition: border-color 0.2s ease;
+	}
+
+	.form-group input:focus,
+	.form-group select:focus,
+	.form-group textarea:focus {
+		outline: none;
+		border-color: #667eea;
+	}
+
+	.form-group textarea {
+		resize: vertical;
+		min-height: 100px;
+	}
+
+	.form-actions {
+		display: flex;
+		gap: 1rem;
+		justify-content: flex-end;
+		margin-top: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.btn-next,
+	.btn-submit {
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		color: white;
+		border: none;
+		padding: 0.75rem 2rem;
+		border-radius: 8px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.btn-next:hover,
+	.btn-submit:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+	}
+
+	.btn-back {
+		background: transparent;
+		color: #374151;
+		border: 2px solid #e5e7eb;
+		padding: 0.75rem 2rem;
+		border-radius: 8px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.btn-back:hover {
+		background: #f9fafb;
+		border-color: #d1d5db;
+	}
+
+	.btn-cancel {
+		background: transparent;
+		color: #6b7280;
+		border: none;
+		padding: 0.75rem 2rem;
+		border-radius: 8px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.btn-cancel:hover {
+		color: #111827;
+		background: #f9fafb;
+	}
+
+	.success-content {
+		text-align: center;
+		padding: 2rem 0;
+	}
+
+	.success-icon {
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		color: white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 2.5rem;
+		margin: 0 auto 1.5rem;
+	}
+
+	.success-content h2 {
+		margin: 0 0 1rem;
+	}
+
+	.success-content p {
+		color: #6b7280;
+		margin: 0 0 2rem;
+		font-size: 1.1rem;
+	}
+
+	@media (max-width: 768px) {
+		.wizard-content {
+			padding: 2rem 1.5rem 1.5rem;
+		}
+
+		.wizard-step h2 {
+			font-size: 1.5rem;
+		}
+
+		.form-actions {
+			flex-direction: column;
+		}
+
+		.form-actions button {
+			width: 100%;
+		}
+	}
+</style>
+
+<script>
+	const WEBHOOK_URL = 'https://webhook.site/YOUR-UNIQUE-ID';
+
+	const overlay = document.getElementById('wizard-overlay');
+	const step1 = document.getElementById('step-1');
+	const step2 = document.getElementById('step-2');
+	const stepSuccess = document.getElementById('step-success');
+	const formStep1 = document.getElementById('wizard-form-step1') as HTMLFormElement;
+	const formStep2 = document.getElementById('wizard-form-step2') as HTMLFormElement;
+	const closeBtn = document.getElementById('wizard-close');
+	const cancelStep1 = document.getElementById('cancel-step1');
+	const cancelStep2 = document.getElementById('cancel-step2');
+	const backStep2 = document.getElementById('back-step2');
+	const closeSuccess = document.getElementById('close-success');
+
+	let formData: Record<string, string> = {};
+
+	function openWizard() {
+		if (overlay) {
+			overlay.style.display = 'flex';
+			document.body.style.overflow = 'hidden';
+			resetWizard();
+		}
+	}
+
+	function closeWizard() {
+		if (overlay) {
+			overlay.style.display = 'none';
+			document.body.style.overflow = '';
+			resetWizard();
+		}
+	}
+
+	function resetWizard() {
+		formData = {};
+		if (step1) step1.style.display = 'block';
+		if (step2) step2.style.display = 'none';
+		if (stepSuccess) stepSuccess.style.display = 'none';
+		if (formStep1) formStep1.reset();
+		if (formStep2) formStep2.reset();
+	}
+
+	function showStep(stepNumber: number) {
+		if (step1) step1.style.display = stepNumber === 1 ? 'block' : 'none';
+		if (step2) step2.style.display = stepNumber === 2 ? 'block' : 'none';
+		if (stepSuccess) stepSuccess.style.display = stepNumber === 3 ? 'block' : 'none';
+	}
+
+	if (formStep1) {
+		formStep1.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const formDataObj = new FormData(formStep1);
+			for (const [key, value] of formDataObj.entries()) {
+				formData[key] = value.toString();
+			}
+			showStep(2);
+		});
+	}
+
+	if (formStep2) {
+		formStep2.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const formDataObj = new FormData(formStep2);
+			for (const [key, value] of formDataObj.entries()) {
+				formData[key] = value.toString();
+			}
+
+			try {
+				const response = await fetch(WEBHOOK_URL, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(formData),
+				});
+
+				if (response.ok) {
+					showStep(3);
+				} else {
+					alert('There was an error submitting the form. Please try again.');
+				}
+			} catch (error) {
+				console.error('Error submitting form:', error);
+				alert('There was an error submitting the form. Please try again.');
+			}
+		});
+	}
+
+	if (closeBtn) closeBtn.addEventListener('click', closeWizard);
+	if (cancelStep1) cancelStep1.addEventListener('click', closeWizard);
+	if (cancelStep2) cancelStep2.addEventListener('click', closeWizard);
+	if (backStep2) backStep2.addEventListener('click', () => showStep(1));
+	if (closeSuccess) closeSuccess.addEventListener('click', closeWizard);
+
+	if (overlay) {
+		overlay.addEventListener('click', (e) => {
+			if (e.target === overlay) {
+				closeWizard();
+			}
+		});
+	}
+
+	window.addEventListener('open-wizard', openWizard);
+</script>
+

@@ -1,0 +1,90 @@
+---
+import clericImage from '../assets/image/meet-cleric/Cleric.png';
+---
+
+<section id="meet-cleric" class="meet-cleric">
+	<div class="meet-cleric-container">
+		<div class="how-pill">How it works</div>
+		<h2 class="section-title">Meet Cleric</h2>
+		<p class="section-description">
+			Cleric investigates problems, surfaces answers, and learns from your engineers.
+		</p>
+
+		<div class="how-card">
+			<img src={clericImage.src} alt="Cleric interface showing how it works" class="how-image" />
+		</div>
+	</div>
+</section>
+
+<style>
+	.meet-cleric {
+		padding: 120px 0 160px;
+		background: linear-gradient(180deg, #f8f8f8 0%, #f7f9fa 100%);
+	}
+
+	.meet-cleric-container {
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.how-pill {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 8px 16px;
+		border-radius: 4px;
+		background-color: #E0E0E0;
+		color: #6B6B6B;
+		font-size: 14px;
+		font-weight: 500;
+		margin-bottom: 24px;
+        transition: 0.3s;
+	}
+
+	.section-title {
+		font-size: 48px;
+		font-weight: 400;
+		color: #313131;
+		margin: 0 0 8px 0;
+	}
+
+	.section-description {
+		font-size: 24px;
+		color: #6B6B6B;
+		max-width: 960px;
+		margin: 0 auto 64px;
+	}
+
+	.how-card {
+		margin: 0 auto;
+		background: transition;
+	}
+
+	.how-image {
+		display: block;
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+		object-fit: contain;
+		object-position: center;
+	}
+
+	@media (max-width: 768px) {
+		.meet-cleric {
+			padding: 80px 16px 120px;
+		}
+
+		.meet-cleric-container {
+			padding: 0 16px;
+		}
+
+		.section-title {
+			font-size: 32px;
+		}
+
+		.how-image {
+			max-height: 600px;
+		}
+	}
+</style>
+

@@ -1,0 +1,225 @@
+---
+import footerLogo from '../assets/icons/footer_logo.svg';
+import twitterIcon from '../assets/image/footer/twitter.png';
+import linkedinIcon from '../assets/image/footer/in.png';
+---
+
+<footer class="footer">
+	<div class="footer-container">
+		<div class="footer-content">
+			<div class="footer-logo">
+				<img src={footerLogo.src} alt="Cleric" class="logo-img" />
+			</div>
+
+			<div class="footer-columns">
+				<div class="footer-column">
+					<p class="column-title">Cleric</p>
+					<ul class="column-links">
+						<li><a href="#">About</a></li>
+						<li><a href="#">Careers</a></li>
+						<li><a href="#">Product</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Webinars</a></li>
+					</ul>
+				</div>
+
+				<div class="footer-column">
+					<p class="column-title">Help & Security</p>
+					<ul class="column-links">
+						<li><a href="#">Trust Center</a></li>
+						<li><a href="#">Terms of Use</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+					</ul>
+				</div>
+
+				<div class="footer-column">
+					<p class="column-title">Use Cases</p>
+					<ul class="column-links">
+						<li><a href="#">Alert Investigation</a></li>
+						<li><a href="#">Root Cause Analysis</a></li>
+						<li><a href="#">Fix Recommendation</a></li>
+						<li><a href="#">On-Call Automation</a></li>
+						<li><a href="#">Incident Triage</a></li>
+						<li><a href="#">Deployment Failures</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<div class="social-icons">
+				<a href="#" class="social-link" aria-label="LinkedIn">
+					<img src={linkedinIcon.src} alt="LinkedIn" class="social-icon" />
+				</a>
+				<a href="#" class="social-link" aria-label="Twitter">
+					<img src={twitterIcon.src} alt="Twitter" class="social-icon" />
+				</a>
+			</div>
+			<p class="copyright">© Cleric 2025</p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background: #ffffff;
+		
+	}
+
+	.footer-container {
+		max-width: 1192px;
+		margin: 0 auto;
+		padding: 24px 0;
+	}
+
+	.footer-content {
+		display: flex;
+		justify-content: space-between;
+		gap: 64px;
+		margin-bottom: 64px;
+	}
+
+	.footer-logo {
+		flex-shrink: 0;
+	}
+
+	.logo-img {
+		width: 29px;
+		height: 33px;
+		display: block;
+	}
+
+	.footer-columns {
+		display: flex;
+		gap: 64px;
+		width: 888px
+	}
+
+	.footer-column {
+		flex: 1;
+	}
+
+	.column-title {
+		font-size: 15px;
+		font-weight: 600;
+		color: #313131;
+		margin: 0 0 24px;
+	}
+
+	.column-links {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.column-links li {
+		margin-bottom: 8px;
+	}
+
+	.column-links a {
+		font-size: 14px;
+		color: #000000;
+		text-decoration: none;
+		transition: color 0.3s;
+	}
+
+	.column-links a:hover {
+		color: #C29CF1;
+	}
+
+	.footer-bottom {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 240px;
+	}
+
+	.social-icons {
+		display: flex;
+		gap: 16px;
+		align-items: center;
+	}
+
+	.social-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-decoration: none;
+		transition: opacity 0.3s;
+	}
+
+	.social-link:hover {
+		opacity: 0.7;
+	}
+
+	.social-icon {
+		width: 20px;
+		height: 20px;
+		display: block;
+	}
+
+	.copyright {
+		font-size: 14px;
+		color: #6b6b6b;
+		margin: 0;
+	}
+
+	@media (max-width: 991px) {
+		.footer-content {
+			gap: 48px;
+		}
+
+		.footer-columns {
+			gap: 48px;
+		}
+
+		.footer-bottom {
+			gap: 120px;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.footer {
+			padding: 64px 0 24px;
+		}
+
+		.footer-container {
+			padding: 0 16px;
+		}
+
+		.footer-content {
+			flex-direction: column;
+			gap: 40px;
+			margin-bottom: 40px;
+		}
+
+		.footer-logo {
+			margin-bottom: 0;
+		}
+
+		.footer-columns {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 32px;
+			width: 100%;
+		}
+
+		.footer-column:last-child {
+			grid-column: 1 / -1;
+		}
+
+		.footer-column:last-child .column-links {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 8px 24px;
+			column-gap: 24px;
+		}
+
+		.footer-bottom {
+			flex-direction: column;
+			gap: 24px;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+</style>

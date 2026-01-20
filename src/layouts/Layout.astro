@@ -1,22 +1,89 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title = "Cleric.ai", description = "AI-powered solutions" } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content={description} />
+		<meta name="robots" content="noindex, nofollow" />
+		<title>{title}</title>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style>
+<style is:global>
+	html {
+		scroll-behavior: smooth;
+	}
+
 	html,
 	body {
 		margin: 0;
+		padding: 0;
 		width: 100%;
-		height: 100%;
+		min-height: 100%;
+		font-family: 'Cleric Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'GT Alpina', 'Cleric Sans Text', serif;
+	}
+
+	.fade-in {
+		opacity: 0;
+		transform: translateY(30px);
+		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+	}
+
+	.fade-in-visible {
+		opacity: 1;
+		transform: translateY(0);
 	}
 </style>
+
+<script>
+	function initScrollAnimations() {
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px 0px -50px 0px',
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('fade-in-visible');
+				}
+			});
+		}, observerOptions);
+
+		const sections = document.querySelectorAll('section');
+		sections.forEach((section) => {
+			section.classList.add('fade-in');
+			observer.observe(section);
+		});
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initScrollAnimations);
+	} else {
+		initScrollAnimations();
+	}
+</script>

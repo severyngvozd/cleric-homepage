@@ -1,0 +1,176 @@
+---
+import ctaImage from '../assets/image/cta/Blanka_blue_sky.jpg';
+---
+
+<section id="cta" class="cta">
+	<div class="cta-container">
+		<div class="cta-content" style={`background-image: url(${ctaImage.src});`}>
+			<div class="cta-text">
+				<h2 class="cta-title">
+					<span class="cta-title-line">Unblock your engineers.</span>
+					<span class="cta-title-line">Start in minutes.</span>
+				</h2>
+				<p class="cta-description">
+					<span class="cta-description-desktop">Setup takes minutes. Read-only by default.</span>
+					<span class="cta-description-mobile">Connect with a scoped, read-only service account. No code changes.</span>
+				</p>
+				<div class="cta-buttons">
+					<button class="cta-btn btn-primary">Start for free</button>
+					<button class="cta-btn btn-outline">Request Demo</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.cta {
+		padding: 80px 160px;
+		background: #ffffff;
+	}
+
+	.cta-container {
+		max-width: 1192px;
+		margin: 0 auto;
+	}
+
+	.cta-content {
+		display: flex;
+		align-items: center;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		border-radius: 16px;
+		padding: 120px;
+		position: relative;
+		min-height: 500px;
+	}
+	
+	.cta-content::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(90deg, #0C182F 0%, #0C182F 100%);
+		opacity: 0.2;
+		border-radius: 16px;
+		z-index: 1;
+	}
+
+	.cta-text {
+		flex: 1;
+		color: #ffffff;
+		position: relative;
+		z-index: 2;
+        max-width: 480px;
+	}
+
+	.cta-title {
+		font-size: 48px;
+		font-weight: 500;
+		color: #ffffff;
+		margin: 0 0 16px;
+		line-height: 1.2;
+        letter-spacing: -3%;
+	}
+
+	.cta-title-line {
+		display: block;
+	}
+
+	.cta-description {
+		font-size: 24px;
+		color: #ffffff;
+		margin: 0 0 48px;
+	}
+
+	.cta-description-mobile {
+		display: none;
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: 16px;
+		flex-wrap: wrap;
+	}
+
+	.cta-btn {
+		padding: 12px 32px;
+		border-radius: 999px;
+		font-weight: 500;
+		font-size: 18px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		width: 190px;
+	}
+
+	.btn-primary {
+		background: #ffffff;
+		color: #313131;
+		border: none;
+	}
+
+	.btn-primary:hover {
+		background: #ECECECE5;
+	}
+
+	.btn-outline {
+		background: rgba(255, 255, 255, 0.05);
+		backdrop-filter: blur(4px);
+		color: #ffffff;
+		border: 1px solid rgba(255, 255, 255, 0.6);
+	}
+
+	.btn-outline:hover {
+		background: rgba(255, 255, 255, 0.12);
+	}
+
+	@media (max-width: 991px) {
+		.cta-description-desktop {
+			display: none;
+		}
+
+		.cta-description-mobile {
+			display: inline;
+		}
+
+        .cta-content {
+            padding: 160px 48px;
+        }
+	}
+
+
+	@media (max-width: 768px) {
+		.cta {
+			padding: 80px 0;
+		}
+
+		.cta-container {
+			padding: 0 16px;
+		}
+
+		.cta-content {
+			padding: 32px 24px;
+		}
+
+		.cta-title {
+			font-size: 36px;
+		}
+
+        .cta-description {
+            font-size: 20px;
+        }
+
+		.cta-buttons {
+			flex-direction: column;
+			width: 100%;
+		}
+
+		.cta-btn {
+			width: 100%;
+		}
+	}
+</style>
+

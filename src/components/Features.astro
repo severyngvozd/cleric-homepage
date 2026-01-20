@@ -1,0 +1,331 @@
+---
+import featurePerson from '../assets/image/features/feature_person.png';
+import BlaBlaCarLogo from '../assets/icons/BlaBlaCar.svg';
+---
+
+<section id="features" class="features">
+	<div class="features-container">
+		<div class="metrics-row">
+			<div class="metric">
+				<div class="metric-value">5 min</div>
+				<div class="metric-label">Time to Root Cause</div>
+			</div>
+			<div class="metric">
+				<div class="metric-value">92%</div>
+				<div class="metric-label">Actionable Findings</div>
+			</div>
+			<div class="metric">
+				<div class="metric-value">200,000+</div>
+				<div class="metric-label">Production-Grade Investigations</div>
+			</div>
+		</div>
+
+		<div class="testimonial-card">
+			<div class="testimonial-inner">
+				<div class="person-wrapper">
+					<img src={featurePerson.src} alt="Maxime Fouilleul" class="person-photo" />
+				</div>
+				<div class="testimonial-content">
+					<div class="company">
+						<img src={BlaBlaCarLogo.src} alt="BlaBlaCar" class="company-logo" />
+					</div>
+					<p class="quote">
+						"I see Cleric functioning as an SRE companion for our Software Engineers. If one team has
+						already solved an alert, we can apply that knowledge elsewhere."
+					</p>
+					<div class="author">
+						<div class="author-info">
+							<div class="person-wrapper-mobile">
+								<img src={featurePerson.src} alt="Maxime Fouilleul" class="person-photo-mobile" />
+							</div>
+							<div class="author-text">
+								<div class="author-name">Maxime Fouilleul</div>
+								<div class="author-role">Head of Infrastructure &amp; Operations | BlaBlaCar</div>
+							</div>
+						</div>
+						<button class="case-button" type="button">Read case study</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.features {
+		padding: 0 auto;
+		background: #ffffff;
+	}
+
+	.features-container {
+		max-width: 1120px;
+		margin: 0 auto;
+		
+	}
+
+	.metrics-row {
+		display: flex;
+		justify-content: space-between;
+		text-align: center;
+		padding: 80px 0 40px 0;
+		gap: 48px;
+	}
+
+	.metric {
+		flex: 1;
+	}
+
+	.metric-value {
+		font-size: 44px;
+		font-weight: 600;
+		color: #313131;
+		margin-bottom: 4px;
+	}
+
+	.metric-label {
+		font-size: 18px;
+		color: #313131;
+	}
+
+	.testimonial-card {
+		background: linear-gradient(90deg, #f8f8f8 0%, #f7f9fa 100%);
+		border-radius: 16px;
+		border: 1px solid #EAEAEA;
+		margin: 40px 0 160px 0;
+	
+	}
+
+	.testimonial-inner {
+		position: relative;
+		display: flex;
+		align-items: center;
+		
+	}
+
+	.person-wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		flex: 0 0 320px;
+		height: 320px;
+		overflow: hidden;
+	}
+
+	.person-photo {
+		width: 420px;
+		max-width: none;
+		transform: translateY(60px);
+	}
+
+	.person-wrapper-mobile {
+		display: none;
+	}
+
+	.testimonial-content {
+		flex: 1;
+		text-align: left;
+		padding: 0 32px 0 40px;
+	}
+
+	.quote {
+		margin: 0 0 40px;
+		font-size: 30px;
+		line-height: 1.4;
+		color: #313131;
+	}
+
+	.company {
+		margin-bottom: 24px;
+	}
+
+	.company-logo {
+		height: 24px;
+		width: auto;
+		display: block;
+	}
+
+	.author-name {
+		font-size: 18px;
+		font-weight: 600;
+		color: #313131;
+	}
+
+	.author-role {
+		font-size: 14px;
+		color: #313131;
+	}
+
+	.author {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+	}
+
+	.author-text {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	.case-button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px 24px;
+		border-radius: 999px;
+		border: none;
+		background: #000000;
+		color: #ffffff;
+		font-size: 15px;
+		font-weight: 500;
+		cursor: pointer;
+		transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.case-button:hover {
+		background: rgba(0, 0, 0, 0.8);
+		box-shadow: 0px 6px 14px rgba(17, 24, 39, 0.25);
+	}
+
+	@media (max-width: 991px) {
+		.metrics-row {
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 32px;
+		}
+
+		.metric {
+			flex: 0 1 calc(50% - 16px);
+			min-width: 200px;
+		}
+
+		.metric:nth-child(3) {
+			flex: 0 1 100%;
+			text-align: center;
+		}
+
+		.testimonial-card {
+			margin: 60px 96px 120px 96px;
+		}
+
+		.testimonial-inner {
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 32px;
+		}
+
+		.company {
+			margin-bottom: 40px;
+		}
+
+		.person-wrapper {
+			display: none;
+		}
+
+		.testimonial-content {
+			padding: 0;
+			width: 100%;
+		}
+
+		.quote {
+			font-size: 28px;
+			margin-bottom: 24px;
+		}
+
+		.author {
+			display: flex;
+			align-items: center;
+			gap: 0;
+			width: 100%;
+			justify-content: flex-start;
+		}
+
+		.author-info {
+			display: flex;
+			align-items: center;
+			flex: 1;
+		}
+
+		.person-wrapper-mobile {
+			width: 72px;
+			height: 72px;
+			flex: 0 0 72px;
+			background: #ffffff;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			margin-right: 8px;
+		}
+
+		.author-text {
+			margin-right: 16px;
+		}
+
+		.person-photo-mobile {
+			width: 72px;
+			height: 72px;
+			object-fit: cover;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.metrics-row {
+			flex-direction: column;
+			gap: 24px;
+		}
+
+		.metric {
+			flex: 1;
+		}
+
+		.metric:nth-child(3) {
+			flex: 1;
+		}
+
+		.testimonial-card {
+			margin: 40px 16px 80px 16px;
+		}
+
+		.testimonial-inner {
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 24px;
+		}
+
+		.quote {
+			font-size: 24px;
+			margin-bottom: 40px;
+		}
+
+		.person-wrapper {
+			justify-content: flex-start;
+			margin-bottom: 24px;
+		}
+
+		.testimonial-content {
+			padding-left: 0;
+		}
+
+		.author {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 24px;
+		}
+
+		.author-info {
+			width: 100%;
+		}
+
+		.person-wrapper-mobile {
+			margin-right: 8px;
+		}
+
+		.author-text {
+			margin-right: 0;
+		}
+	}
+</style>
+

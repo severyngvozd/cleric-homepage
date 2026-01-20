@@ -1,0 +1,277 @@
+---
+import img1 from '../assets/image/in-action/in-action_img1.png';
+import img2 from '../assets/image/in-action/in-action_img2.png';
+import img3 from '../assets/image/in-action/in-action_img3.png';
+import img4 from '../assets/image/in-action/in-action_img4.png';
+---
+
+<section id="in-action" class="in-action">
+	<div class="in-action-inner">
+		<div class="pill">Cleric in action</div>
+		<h2 class="title">Things break. Cleric investigates.</h2>
+		<p class="subtitle">
+			While you’re still reading the alert, Cleric’s already three steps into the investigation.
+		</p>
+
+		<div class="rows">
+			<div class="row">
+				<div class="row-text">
+					<h3 class="row-title">Skip straight to the answer</h3>
+					<p class="row-body">
+						Cleric automatically investigates alerts and delivers root cause analysis so you know exactly what’s
+						wrong and whether to act.
+					</p>
+				</div>
+				<div class="row-image">
+					<img src={img1.src} alt="PagerDuty alert and Cleric investigation card" />
+				</div>
+			</div>
+
+			<div class="row row-reverse">
+				<div class="row-text">
+					<h3 class="row-title">Trust but verify</h3>
+					<p class="row-body">
+						See exactly how Cleric reached its conclusions so you can trust the diagnosis and move to resolution.
+					</p>
+				</div>
+				<div class="row-image">
+					<img src={img2.src} alt="Cleric investigation detail tree" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="row-text">
+					<h3 class="row-title">Ship a fix</h3>
+					<p class="row-body">
+						Work with Cleric to ship fixes by asking questions, giving instructions, and collaborating until the
+						issue is resolved.
+					</p>
+				</div>
+				<div class="row-image">
+					<img src={img3.src} alt="Cleric Slack thread about deploying a fix" />
+				</div>
+			</div>
+
+			<div class="row row-reverse">
+				<div class="row-text">
+					<h3 class="row-title">Learns from failure</h3>
+					<p class="row-body">
+						Engineers leave, context doesn’t. Every resolution becomes institutional knowledge your whole team
+						can use.
+					</p>
+				</div>
+				<div class="row-image">
+					<img src={img4.src} alt="Cleric memory saved card" />
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.in-action {
+		padding: 120px 0 80px;
+		background: #ffffff;
+	}
+
+	.in-action-inner {
+		max-width: 1192px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.pill {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 8px 16px;
+		border-radius: 4px;
+		background-color: #e0e0e0;
+		color: #6b6b6b;
+		font-size: 14px;
+		font-weight: 500;
+		margin-bottom: 24px;
+	}
+
+	.title {
+		font-size: 40px;
+		font-weight: 400;
+		color: #313131;
+		margin: 0 0 8px;
+	}
+
+	.subtitle {
+		font-size: 18px;
+		color: #6b6b6b;
+		max-width: 720px;
+		margin: 0 auto 64px;
+	}
+
+	.rows {
+		display: flex;
+		flex-direction: column;
+		gap: 48px;
+	}
+
+	.row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 40px;
+		border-radius: 16px;
+		background: linear-gradient(180deg, #f8f8f8 0%, #f7f9fa 100%);
+        border: 1px solid #EAEAEA;
+	}
+
+	.row-reverse {
+		direction: rtl;
+	}
+
+	.row-reverse > * {
+		direction: ltr;
+	}
+
+	.row-text {
+		text-align: left;
+        max-width: 400px;
+	}
+
+	.row-title {
+		font-size: 40px;
+		font-weight: 400;
+		color: #313131;
+		margin: 0 0 20px;
+	}
+
+	.row-body {
+		font-size: 18px;
+		color: #6B6B6B;
+		margin: 0;
+        line-height: 140%;
+
+	}
+
+	.row-image {
+		display: flex;
+		justify-content: flex-end;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.row-reverse .row-image {
+		justify-content: flex-start;
+	}
+
+	.row-image img {
+		display: block;
+		max-width: 100%;
+		width: 600px;
+		height: auto;
+		object-fit: contain;
+	}
+
+	.row-image::after {
+		content: '';
+		position: absolute;
+		pointer-events: none;
+	}
+	.rows .row:nth-child(1) .row-image::after,
+	.rows .row:nth-child(3) .row-image::after {
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 0;
+		width: 712px;
+		max-width: 100%;
+		height: 120px;
+		background: linear-gradient(180deg, rgba(248, 248, 248, 0) 0%, #f8f8f8 100%);
+	}
+
+	.rows .row:nth-child(4) .row-image::after,
+    .rows .row:nth-child(2) .row-image::after {
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		width: 120px;
+		height: 100%;
+		background: linear-gradient(90deg, #f8f8f8 0%, rgba(248, 248, 248, 0) 100%);
+	}
+
+	@media (max-width: 991px) {
+        .in-action {
+            padding: 120px 96px 60px 96px;
+        }
+
+		.in-action-inner {
+			text-align: left;
+		}
+
+		.title {
+			font-size: 36px;
+		}
+
+		.subtitle {
+			font-size: 16px;
+		}
+
+		.pill {
+			font-size: 13px;
+		}
+
+		.row,
+		.row-reverse {
+			flex-direction: column;
+			padding: 32px 24px;
+		}
+
+		.row-text {
+			text-align: left;
+			margin-bottom: 24px;
+			max-width: none;
+		}
+
+		.row-image {
+			justify-content: center;
+		}
+
+		.row-title {
+			font-size: 40px;
+		}
+
+		.row-body {
+			font-size: 18px;
+		}
+	}
+
+
+	@media (max-width: 767px) {
+		.in-action {
+			padding: 80px 16px 40px 16px;
+		}
+
+		.in-action-inner {
+			text-align: left;
+		}
+
+		.title {
+			font-size: 32px;
+		}
+
+		.subtitle {
+			font-size: 16px;
+		}
+
+		.pill {
+			font-size: 12px;
+		}
+
+		.row-title {
+			font-size: 32px;
+		}
+
+		.row-body {
+			font-size: 16px;
+		}
+	}
+</style>
+
+

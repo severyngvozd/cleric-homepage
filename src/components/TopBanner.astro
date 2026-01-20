@@ -1,0 +1,117 @@
+---
+import closeIcon from '../assets/icons/close.svg';
+---
+
+<div id="top-banner" class="top-banner">
+	<div class="banner-container">
+		<div class="banner-content">
+			<p>Cleric Named a Gartner® Cool Vendor 2025 in AI for SRE and Observability.
+			<span>Find out more</span>
+			</p>
+		</div>
+		<button class="banner-close" id="banner-close" aria-label="Close banner">
+			<img src={closeIcon.src} alt="Close" />
+		</button>
+	</div>
+</div>
+
+<style>
+	.top-banner {
+		background-color: black;
+		color: white;
+		padding: 8px 0;
+		position: relative;
+		z-index: 999;
+		animation: slideDown 0.3s ease;
+		font-family: 'Cleric Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	}
+
+	.banner-container {
+		max-width: 1600px;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+	}
+
+	@keyframes slideDown {
+		from {
+			transform: translateY(-100%);
+		}
+		to {
+			transform: translateY(0);
+		}
+	}
+
+
+	.banner-content {
+		flex: 1;
+		text-align: center;
+        font-size: 14px;
+	}
+
+	.banner-content p {
+		margin: 0;
+	}
+    .banner-content span {
+        color: #C29CF1;
+        text-decoration: underline;
+
+    }
+
+	.banner-close {
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.25rem 0.5rem;
+		line-height: 1;
+		transition: opacity 0.2s ease;
+		margin-left: 1rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.banner-close img {
+		width: 9px;
+		height: 9px;
+	}
+
+	@media (max-width: 767px) {
+		.banner-container {
+			justify-content: flex-start;
+		}
+
+		.banner-content {
+			text-align: left;
+			flex: 1;
+			min-width: 0;
+			overflow: hidden;
+		}
+
+		.banner-content p {
+			font-size: 14px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.banner-close {
+			margin-left: 0.5rem;
+			flex-shrink: 0;
+		}
+	}
+</style>
+
+<script>
+	const banner = document.getElementById('top-banner');
+	const closeBtn = document.getElementById('banner-close');
+
+	if (closeBtn && banner) {
+		closeBtn.addEventListener('click', () => {
+			banner.style.display = 'none';
+		});
+	}
+</script>
+
