@@ -1,5 +1,6 @@
 ---
 import clericImage from '../assets/image/meet-cleric/Cleric.png';
+import clericMobileImage from '../assets/image/meet-cleric/Cleric_mobile.png';
 import SectionHeader from './ui/SectionHeader.astro';
 ---
 
@@ -12,7 +13,16 @@ import SectionHeader from './ui/SectionHeader.astro';
 		/>
 
 		<div class="how-card">
-			<img src={clericImage.src} alt="Cleric interface showing how it works" class="how-image" />
+			<img
+				src={clericImage.src}
+				alt="Cleric interface showing how it works"
+				class="how-image how-image-desktop"
+			/>
+			<img
+				src={clericMobileImage.src}
+				alt="Cleric interface showing how it works"
+				class="how-image how-image-mobile"
+			/>
 		</div>
 	</div>
 </section>
@@ -41,6 +51,24 @@ import SectionHeader from './ui/SectionHeader.astro';
 		height: auto;
 		object-fit: contain;
 		object-position: center;
+	}
+
+	.how-image-desktop {
+		display: block;
+	}
+
+	.how-image-mobile {
+		display: none;
+	}
+
+	@media (max-width: 991px) {
+		.how-image-desktop {
+			display: none !important;
+		}
+
+		.how-image-mobile {
+			display: block !important;
+		}
 	}
 
 	@media (max-width: 768px) {
