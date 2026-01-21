@@ -1,0 +1,28 @@
+---
+interface Props {
+	class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class={`pill ${className}`}>
+	<slot />
+</div>
+
+<style>
+	.pill {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 8px 16px;
+		border-radius: 4px;
+		background-color: #e0e0e0;
+		color: #6b6b6b;
+		font-size: 14px;
+		font-weight: 500;
+		margin-bottom: 24px;
+		font-family: 'Cleric Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	}
+</style>
+

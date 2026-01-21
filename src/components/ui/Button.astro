@@ -1,0 +1,58 @@
+---
+interface Props {
+	variant?: 'primary' | 'outline';
+	href?: string;
+	type?: 'button' | 'submit';
+	class?: string;
+}
+
+const { variant = 'primary', href, type = 'button', class: className = '' } = Astro.props;
+---
+
+{href ? (
+	<a href={href} class={`btn btn-${variant} ${className}`}>
+		<slot />
+	</a>
+) : (
+	<button type={type} class={`btn btn-${variant} ${className}`}>
+		<slot />
+	</button>
+)}
+
+<style>
+	.btn {
+		padding: 12px 32px;
+		border-radius: 999px;
+		font-weight: 500;
+		font-size: 18px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		border: none;
+		text-decoration: none;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-family: 'Cleric Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	}
+
+	.btn-primary {
+		background: #ffffff;
+		color: #313131;
+	}
+
+	.btn-primary:hover {
+		background: #ECECECE5;
+	}
+
+	.btn-outline {
+		background: rgba(255, 255, 255, 0.05);
+		backdrop-filter: blur(4px);
+		color: #ffffff;
+		border: 1px solid rgba(255, 255, 255, 0.6);
+	}
+
+	.btn-outline:hover {
+		background: rgba(255, 255, 255, 0.12);
+	}
+</style>
+

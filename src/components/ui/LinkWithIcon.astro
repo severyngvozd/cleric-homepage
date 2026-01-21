@@ -1,0 +1,39 @@
+---
+import arrowIcon from '../../assets/icons/arrow-up-right.svg';
+
+interface Props {
+	href?: string;
+	iconColor?: 'white' | 'black';
+	class?: string;
+}
+
+const { href = '#', iconColor = 'white', class: className = '' } = Astro.props;
+---
+
+<a href={href} class={`link-with-icon ${className}`} data-icon-color={iconColor}>
+	<slot />
+	<img src={arrowIcon.src} alt="" class="link-arrow" />
+</a>
+
+<style>
+	.link-with-icon {
+		color: inherit;
+		text-decoration: underline;
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		transition: color 0.3s;
+	}
+
+	.link-arrow {
+		width: 16px;
+		height: 16px;
+		display: inline-block;
+		transition: filter 0.3s;
+	}
+
+	.link-with-icon[data-icon-color="black"] .link-arrow {
+		filter: brightness(0);
+	}
+</style>
+

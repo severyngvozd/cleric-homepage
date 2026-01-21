@@ -1,23 +1,22 @@
 ---
 import securityImage from '../assets/image/security/security.png';
-import arrowIcon from '../assets/icons/arrow-up-right.svg';
+import SectionHeader from './ui/SectionHeader.astro';
+import LinkWithIcon from './ui/LinkWithIcon.astro';
 ---
 
 <section id="security" class="security">
 	<div class="security-container">
 		<div class="security-content">
 			<div class="security-text">
-				<div class="pill">Security-first</div>
-				<h2 class="section-title">Paranoid by design</h2>
-				<p class="section-description">
-					Read-only by default. Every action logged, every investigation auditable. Your data encrypted everywhere and never used for training.
-				</p>
+				<SectionHeader
+					pill="Security-first"
+					title="Paranoid by design"
+					description="Read-only by default. Every action logged, every investigation auditable. Your data encrypted everywhere and never used for training."
+					align="left"
+				/>
 				<div class="trust-link">
 					<span>Learn more in our </span>
-					<a href="#" class="link-with-icon">
-						Trust Center
-						<img src={arrowIcon.src} alt="" class="link-arrow" />
-					</a>
+					<LinkWithIcon href="#" iconColor="black">Trust Center</LinkWithIcon>
 				</div>
 			</div>
 
@@ -50,51 +49,9 @@ import arrowIcon from '../assets/icons/arrow-up-right.svg';
         max-width: 560px;
 	}
 
-	.pill {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: 8px 16px;
-		border-radius: 4px;
-		background-color: #e0e0e0;
-		color: #6b6b6b;
-		font-size: 14px;
-		font-weight: 500;
-		margin-bottom: 24px;
-	}
-
-	.section-title {
-		font-size: 48px;
-		font-weight: 400;
-		color: #313131;
-		margin: 0 0 24px;
-	}
-
-	.section-description {
-		font-size: 18px;
-		color: #313131;
-		margin: 0 0 24px;
-		line-height: 1.5;
-	}
-
 	.trust-link {
 		font-size: 18px;
 		color: #313131;
-	}
-
-	.link-with-icon {
-		color: #313131;
-		text-decoration: underline;
-		display: inline-flex;
-		align-items: center;
-		gap: 4px;
-	}
-
-	.link-arrow {
-		width: 16px;
-		height: 16px;
-		display: inline-block;
-		filter: brightness(0);
 	}
 
 	.security-image {
@@ -168,18 +125,6 @@ import arrowIcon from '../assets/icons/arrow-up-right.svg';
 		.security-text {
 			text-align: left;
 			max-width: 100%;
-		}
-
-		.section-title {
-			font-size: 32px;
-		}
-
-		.section-description {
-			font-size: 16px;
-		}
-
-		.pill {
-			font-size: 12px;
 		}
 
 		.security-image {

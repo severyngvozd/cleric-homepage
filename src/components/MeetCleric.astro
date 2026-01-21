@@ -1,14 +1,15 @@
 ---
 import clericImage from '../assets/image/meet-cleric/Cleric.png';
+import SectionHeader from './ui/SectionHeader.astro';
 ---
 
 <section id="meet-cleric" class="meet-cleric">
 	<div class="meet-cleric-container">
-		<div class="how-pill">How it works</div>
-		<h2 class="section-title">Meet Cleric</h2>
-		<p class="section-description">
-			Cleric investigates problems, surfaces answers, and learns from your engineers.
-		</p>
+		<SectionHeader
+			pill="How it works"
+			title="Meet Cleric"
+			description="Cleric investigates problems, surfaces answers, and learns from your engineers."
+		/>
 
 		<div class="how-card">
 			<img src={clericImage.src} alt="Cleric interface showing how it works" class="how-image" />
@@ -27,33 +28,6 @@ import clericImage from '../assets/image/meet-cleric/Cleric.png';
 		text-align: center;
 	}
 
-	.how-pill {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: 8px 16px;
-		border-radius: 4px;
-		background-color: #E0E0E0;
-		color: #6B6B6B;
-		font-size: 14px;
-		font-weight: 500;
-		margin-bottom: 24px;
-        transition: 0.3s;
-	}
-
-	.section-title {
-		font-size: 48px;
-		font-weight: 400;
-		color: #313131;
-		margin: 0 0 8px 0;
-	}
-
-	.section-description {
-		font-size: 24px;
-		color: #6B6B6B;
-		max-width: 960px;
-		margin: 0 auto 64px;
-	}
 
 	.how-card {
 		margin: 0 auto;
