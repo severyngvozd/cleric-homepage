@@ -50,7 +50,7 @@ import LinkWithIcon from './ui/LinkWithIcon.astro';
 	}
 
 	.trust-link {
-		font-size: 18px;
+		font-size: 15px;
 		color: #313131;
 	}
 
@@ -63,10 +63,20 @@ import LinkWithIcon from './ui/LinkWithIcon.astro';
 
 	.security-img {
 		display: block;
-		width: 100%;
+		width: 95%;
 		max-width: 100%;
 		height: auto;
 		object-fit: contain;
+	}
+
+	@media (max-width: 1200px) {
+		.security-container {
+			padding: 0 10%;
+		}
+
+		.security-img {
+			width: 95%;
+		}
 	}
 
 	@media (max-width: 991px) {
@@ -108,7 +118,7 @@ import LinkWithIcon from './ui/LinkWithIcon.astro';
 		}
 	}
 
-	@media (max-width: 767px) {
+	@media (max-width: 768px) {
 		.security {
 			padding: 64px 16px;
 		}

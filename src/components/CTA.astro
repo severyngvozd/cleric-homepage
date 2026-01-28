@@ -26,25 +26,30 @@ import Button from './ui/Button.astro';
 
 <style>
 	.cta {
-		padding: 80px 160px;
+		padding: 80px 0;
 		background: #ffffff;
 	}
 
 	.cta-container {
-		max-width: 1192px;
+		max-width: 1260px;
+		width: 100%;
 		margin: 0 auto;
+		margin-bottom: 120px;
+		padding: 0 160px;
 	}
 
 	.cta-content {
 		display: flex;
 		align-items: center;
-		background-size: cover;
+		background-size: 125%;
 		background-position: center;
 		background-repeat: no-repeat;
 		border-radius: 16px;
 		padding: 120px;
 		position: relative;
 		min-height: 500px;
+		max-width: 95%;
+		margin: 0 auto;
 	}
 	
 	.cta-content::before {
@@ -102,6 +107,16 @@ import Button from './ui/Button.astro';
 		width: 190px;
 	}
 
+	@media (max-width: 1200px) {
+		.cta-container {
+			padding: 0 24px;
+		}
+
+		.cta-content {
+			background-size: cover;
+		}
+	}
+
 	@media (max-width: 991px) {
 		.cta-description-desktop {
 			display: none;
@@ -109,6 +124,10 @@ import Button from './ui/Button.astro';
 
 		.cta-description-mobile {
 			display: inline;
+		}
+
+		.cta-container {
+			padding: 0 48px;
 		}
 
         .cta-content {
@@ -119,7 +138,7 @@ import Button from './ui/Button.astro';
 
 	@media (max-width: 768px) {
 		.cta {
-			padding: 80px 0;
+			padding: 16px 0;
 		}
 
 		.cta-container {
@@ -128,6 +147,7 @@ import Button from './ui/Button.astro';
 
 		.cta-content {
 			padding: 32px 24px;
+			background-size: cover;
 		}
 
 		.cta-title {

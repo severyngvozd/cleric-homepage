@@ -14,7 +14,7 @@ import img4 from '../assets/image/in-action/in-action_img4.png';
 		</p>
 
 		<div class="rows">
-			<div class="row">
+			<div class="row" style="padding: 30px 40px 0 40px;">
 				<div class="row-text">
 					<h3 class="row-title">Skip straight to the answer</h3>
 					<p class="row-body">
@@ -27,7 +27,7 @@ import img4 from '../assets/image/in-action/in-action_img4.png';
 				</div>
 			</div>
 
-			<div class="row row-reverse">
+			<div class="row row-reverse" style="padding: 10px 40px 10px 0;">
 				<div class="row-text">
 					<h3 class="row-title">Trust but verify</h3>
 					<p class="row-body">
@@ -39,7 +39,7 @@ import img4 from '../assets/image/in-action/in-action_img4.png';
 				</div>
 			</div>
 
-			<div class="row">
+			<div class="row" style="padding: 10px 0 10px 40px;">
 				<div class="row-text">
 					<h3 class="row-title">Ship a fix</h3>
 					<p class="row-body">
@@ -53,8 +53,8 @@ import img4 from '../assets/image/in-action/in-action_img4.png';
 			</div>
 
 			<div class="row row-reverse">
-				<div class="row-text">
-					<h3 class="row-title">Learns from failure</h3>
+				<div class="row-text" style="padding: 10px 40px 0 40px; max-width: 460px;">
+					<h3 class="row-title" style="max-width: 400px;">Learns from failure</h3>
 					<p class="row-body">
 						Engineers leave, context doesn’t. Every resolution becomes institutional knowledge your whole team
 						can use.
@@ -94,16 +94,16 @@ import img4 from '../assets/image/in-action/in-action_img4.png';
 	}
 
 	.title {
-		font-size: 40px;
-		font-weight: 400;
+		font-size: 48px;
+		font-weight: 500;
 		color: #313131;
 		margin: 0 0 8px;
 	}
 
 	.subtitle {
-		font-size: 18px;
+		font-size: 24px;
+		font-weight: 400;
 		color: #6b6b6b;
-		max-width: 720px;
 		margin: 0 auto 64px;
 	}
 
@@ -117,7 +117,6 @@ import img4 from '../assets/image/in-action/in-action_img4.png';
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 40px;
 		border-radius: 16px;
 		background: linear-gradient(180deg, #f8f8f8 0%, #f7f9fa 100%);
         border: 1px solid #EAEAEA;
@@ -138,9 +137,11 @@ import img4 from '../assets/image/in-action/in-action_img4.png';
 
 	.row-title {
 		font-size: 40px;
-		font-weight: 400;
+		font-weight: 500;
 		color: #313131;
 		margin: 0 0 20px;
+		line-height: 120%;
+		max-width: 300px;
 	}
 
 	.row-body {
@@ -175,15 +176,23 @@ import img4 from '../assets/image/in-action/in-action_img4.png';
 		position: absolute;
 		pointer-events: none;
 	}
-	.rows .row:nth-child(1) .row-image::after,
-	.rows .row:nth-child(3) .row-image::after {
+	.rows .row:nth-child(1) .row-image::after {
 		left: 50%;
 		transform: translateX(-50%);
 		bottom: 0;
 		width: 712px;
 		max-width: 100%;
 		height: 120px;
-		background: linear-gradient(180deg, rgba(248, 248, 248, 0) 0%, #f8f8f8 100%);
+		background: linear-gradient(180deg, rgba(248, 248, 248, 0) 0%, #F8F8F8 100%);
+	}
+
+	.rows .row:nth-child(3) .row-image::after {
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+		width: 120px;
+		height: 100%;
+		background: linear-gradient(270deg, #f8f8f8 0%, rgba(248, 248, 248, 0) 100%);
 	}
 
 	.rows .row:nth-child(4) .row-image::after,
@@ -196,7 +205,43 @@ import img4 from '../assets/image/in-action/in-action_img4.png';
 		background: linear-gradient(90deg, #f8f8f8 0%, rgba(248, 248, 248, 0) 100%);
 	}
 
-	@media (max-width: 991px) {
+	@media (max-width: 1200px) {
+		.in-action {
+			padding: 100px 24px 60px 24px;
+		}
+
+		.in-action-inner {
+			max-width: 100%;
+		}
+
+		.rows .row {
+			padding: 20px 24px;
+			gap: 24px;
+			max-width: 900px;
+			margin: 0 auto;
+		}
+
+		.rows .row-reverse {
+			padding: 20px 24px;
+			gap: 24px;
+			max-width: 900px;
+			margin: 0 auto;
+		}
+
+		.rows .row .row-text {
+			padding: 0;
+		}
+
+		.rows .row-reverse .row-text {
+			padding: 0;
+		}
+
+		.row-image img {
+			width: 480px;
+		}
+	}
+
+	@media (max-width: 992px) {
         .in-action {
             padding: 120px 96px 60px 96px;
         }
@@ -210,23 +255,32 @@ import img4 from '../assets/image/in-action/in-action_img4.png';
 		}
 
 		.subtitle {
-			font-size: 16px;
+			font-family: 'Cleric Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 20px;
+			line-height: 125%;
+			letter-spacing: 0.75%;
 		}
 
 		.pill {
 			font-size: 13px;
 		}
 
-		.row,
-		.row-reverse {
+		.rows .row,
+		.rows .row-reverse {
 			flex-direction: column;
-			padding: 32px 24px;
+			padding: 32px !important;
+			max-width: 642px;
+			margin: 0 auto;
+			width: 100%;
 		}
 
 		.row-text {
 			text-align: left;
 			margin-bottom: 24px;
 			max-width: none;
+			padding: 0 !important;
 		}
 
 		.row-image {
@@ -235,15 +289,17 @@ import img4 from '../assets/image/in-action/in-action_img4.png';
 
 		.row-title {
 			font-size: 40px;
+			max-width: none;
 		}
 
 		.row-body {
 			font-size: 18px;
+			max-width: none;
 		}
 	}
 
 
-	@media (max-width: 767px) {
+	@media (max-width: 768px) {
 		.in-action {
 			padding: 80px 16px 40px 16px;
 		}
@@ -254,6 +310,7 @@ import img4 from '../assets/image/in-action/in-action_img4.png';
 
 		.title {
 			font-size: 32px;
+			max-width: 68%;
 		}
 
 		.subtitle {

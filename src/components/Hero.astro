@@ -39,13 +39,12 @@ import arrowUpRight from '../assets/icons/arrow-up-right.svg';
 <style>
 	.hero {
 		position: relative;
-		margin-top: -80px;
-		padding: 160px 32px 0 32px;
-		min-height: 720px;
+		margin-top: -270px;
+		padding: 350px 32px 0 32px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background-size: cover;
+		background-size: 175%;
 		background-position: center top;
 		background-repeat: no-repeat;
 		color: #ffffff;
@@ -57,13 +56,13 @@ import arrowUpRight from '../assets/icons/arrow-up-right.svg';
 		left: 0;
 		right: 0;
 		bottom: 0;
-		height: 120px;
+		height: 200px;
 		background: linear-gradient(
 			to bottom,
 			rgba(255, 255, 255, 0) 0%,
-			rgba(255, 255, 255, 0.7) 55%,
-			rgba(255, 255, 255, 0.9) 75%,
-			#ffffff 100%
+			rgba(255, 255, 255, 0.5) 40%,
+			rgba(255, 255, 255, 0.9) 60%,
+			#ffffff 80%
 		);
 		z-index: 2;
 		pointer-events: none;
@@ -116,7 +115,7 @@ import arrowUpRight from '../assets/icons/arrow-up-right.svg';
 		cursor: pointer;
 	}
 
-	@media (max-width: 767px) {
+	@media (max-width: 768px) {
 		.pill-link {
 			font-size: 12px;
 		}
@@ -164,14 +163,12 @@ import arrowUpRight from '../assets/icons/arrow-up-right.svg';
 
 	.hero-mockups {
 		position: relative;
-		margin-top: 72px;
+		margin-top: 128px;
 		display: flex;
 		justify-content: center;
-		overflow: hidden;
 	}
 
 	.hero-web {
-		max-width: 960px;
 		width: 100%;
 		border-radius: 6px;
 		box-shadow:
@@ -181,10 +178,9 @@ import arrowUpRight from '../assets/icons/arrow-up-right.svg';
 
 	.hero-slack {
 		position: absolute;
-		right: 6%;
-		bottom: -40px;
-		width: 260px;
-		max-width: 35%;
+		right: -8%;
+		bottom: 0;
+		width: 350px;
 		border-radius: 6px;
 		box-shadow:
 			0px 3px 20px rgba(39, 43, 49, 0.1),
@@ -223,7 +219,36 @@ import arrowUpRight from '../assets/icons/arrow-up-right.svg';
 	}
 
 
-	@media (max-width: 991px) {
+	@media (max-width: 1600px) {
+		.hero {
+			background-size: cover;
+			background-position: center top;
+		}
+	}
+
+	@media (max-width: 1340px) {
+		.hero-web {
+			transform: scale(0.95);
+			transform-origin: center;
+		}
+
+		.hero-slack {
+			right: -2%;
+			transform: scale(0.95);
+			transform-origin: bottom right;
+		}
+	}
+
+	@media (max-width: 1200px) {
+		.hero-slack {
+			right: 3%;
+			bottom: 0;
+			width: 320px;
+			transform: none;
+		}
+	}
+
+	@media (max-width: 992px) {
 		.hero {
 			background-size: cover;
 		}
@@ -235,15 +260,27 @@ import arrowUpRight from '../assets/icons/arrow-up-right.svg';
 		.hero-description {
 			font-size: 20px;
 		}
+
+		.hero-slack {
+			right: 36px;
+			bottom: 0;
+			width: 220px;
+			transform: none;
+		}
+
+		.hero-web {
+			width: 734px
+		}
 	}
 
-	@media (max-width: 767px) {
+	@media (max-width: 768px) {
 		.hero {
 			padding: 160px 16px 0;
 			min-height: auto;
 			background-size: cover;
 			flex-direction: column;
 			justify-content: space-between;
+			margin-top: -160px;
 		}
 
 		.hero-title {
@@ -272,6 +309,10 @@ import arrowUpRight from '../assets/icons/arrow-up-right.svg';
 			width: 100%;
 			max-width: 100%;
 		}
+
+		.hero-cta {
+		gap: 16px;
+	}
 	}
 
 </style>

@@ -64,9 +64,9 @@ const logosRow2 = [
 		</div>
 
 		<div class="integrations-cta">
-			<span>See if Cleric is a fit for your stack</span>
+			<span>See if Cleric is a fit </span>
 			<a href="#" class="cta-link">
-				<span>your stack</span>
+				<span>for your stack</span>
 				<img src={arrowIcon.src} alt="" class="cta-arrow" />
 			</a>
 		</div>
@@ -171,6 +171,26 @@ const logosRow2 = [
 	}
 
 
+	@media (max-width: 1200px) {
+		.logos-grid {
+			margin: 0 auto;
+		}
+
+		.logos-row {
+			gap: 40px;
+		}
+
+		.logo-card {
+			width: 64px;
+			height: 64px;
+		}
+
+		.logo-card img {
+			max-width: 28px;
+			max-height: 28px;
+		}
+	}
+
 	@media (max-width: 991px) {
 		.integrations {
 			padding: 80px 96px 60px 96px;
@@ -216,14 +236,14 @@ const logosRow2 = [
 		}
 	}
 
-	@media (max-width: 767px) {
+	@media (max-width: 768px) {
 		.integrations {
 			padding: 64px 16px;
 		}
 
 		.integrations-container {
 			padding: 0;
-			text-align: left;
+			text-align: center;
 		}
 
 		.section-title {

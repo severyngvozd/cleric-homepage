@@ -5,8 +5,9 @@ import closeIcon from '../assets/icons/close.svg';
 <div id="top-banner" class="top-banner">
 	<div class="banner-container">
 		<div class="banner-content">
-			<p>Cleric Named a Gartner® Cool Vendor 2025 in AI for SRE and Observability.
-			<span>Find out more</span>
+			<p>
+				<span class="banner-text">Cleric Named a Gartner® Cool Vendor 2025 in AI for SRE and Observability.</span>
+				<span class="banner-link">Find out more</span>
 			</p>
 		</div>
 		<button class="banner-close" id="banner-close" aria-label="Close banner">
@@ -53,12 +54,21 @@ import closeIcon from '../assets/icons/close.svg';
 
 	.banner-content p {
 		margin: 0;
+		align-items: center;
+		gap: 4px;
 	}
-    .banner-content span {
-        color: #C29CF1;
-        text-decoration: underline;
 
-    }
+	.banner-text {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.banner-link {
+		color: #C29CF1;
+		text-decoration: underline;
+		flex-shrink: 0;
+	}
 
 	.banner-close {
 		background: none;
@@ -78,9 +88,10 @@ import closeIcon from '../assets/icons/close.svg';
 		height: 9px;
 	}
 
-	@media (max-width: 767px) {
+	@media (max-width: 768px) {
 		.banner-container {
 			justify-content: flex-start;
+			padding: 0 16px;
 		}
 
 		.banner-content {
@@ -92,9 +103,15 @@ import closeIcon from '../assets/icons/close.svg';
 
 		.banner-content p {
 			font-size: 14px;
-			white-space: nowrap;
+			display: flex;
+		}
+
+		.banner-text {
+			flex: 1;
+			min-width: 0;
 			overflow: hidden;
 			text-overflow: ellipsis;
+			white-space: nowrap;
 		}
 
 		.banner-close {

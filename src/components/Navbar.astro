@@ -43,7 +43,6 @@ import menuIcon from '../assets/icons/Button_menu.svg';
 
 	.navbar.scrolled {
 		background: #ffffff;
-		border-bottom: 1px solid #eaeaea;
 	}
 
 	.navbar-container {
@@ -169,9 +168,15 @@ import menuIcon from '../assets/icons/Button_menu.svg';
 		transition: filter 0.3s ease;
 	}
 
-	@media (max-width: 767px) {
+	@media (max-width: 992px) {
 		.navbar-container {
-			padding: 12px;
+			padding: 12px 36px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.navbar-container {
+			padding: 16px;
 			justify-content: space-between;
 		}
 
@@ -240,7 +245,7 @@ import menuIcon from '../assets/icons/Button_menu.svg';
 
 	if (navbar) {
 		const handleScroll = () => {
-			if (window.scrollY > 50) {
+			if (window.scrollY > 600) {
 				navbar.classList.add('scrolled');
 			} else {
 				navbar.classList.remove('scrolled');
